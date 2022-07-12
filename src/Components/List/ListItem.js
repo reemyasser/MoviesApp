@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {FlatList, Text, View} from 'react-native';
 import {useQuery} from 'react-query';
@@ -93,4 +93,4 @@ function ListItem({filterName, favoriteMovies, setfavoriteMovies}) {
   );
 }
 
-export default memo(ListItem);
+export default ListItem;

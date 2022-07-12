@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React from 'react';
 
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 
@@ -35,4 +35,4 @@ function Item({movie, addtoFavorite, removeFromFavorite}) {
     </View>
   );
 }
-export default memo(Item);
+export default Item;
