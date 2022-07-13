@@ -1,7 +1,9 @@
 # Movies app
-the Movie App can Show movies with a filter for
-To switch between (Best Movies - Upcoming Movies - Now Playing
-Movies), search for a movie, a movie can be added to the favorites list and deleted
+The "Movies App" provides you with list of movies with ability to filter with the following options: 
+1. Best Movies
+2. Upcoming Movies
+3. Now Playing Movies
+ and ability to search for a specific movie, add movie to favorite list also delete from it
 ## Screenshots
 
 ![App Screenshot](https://github.com/reemyasser/MoviesApp/blob/main/screenshots/1.jpeg)
