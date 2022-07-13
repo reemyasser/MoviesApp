@@ -5,8 +5,9 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './ItemCss';
 
 function Item({movie, addtoFavorite, removeFromFavorite}) {
+  //Flag to know favorite movie
   let Favorite = movie.fav_flag;
-
+  // toggle between add or delete movie from favorite list
   const toggleFavoriteList = () => {
     if (Favorite) removeFromFavorite(movie.id);
     else addtoFavorite(movie);

@@ -6,7 +6,9 @@ import {deleteFavoriteMovies} from '../../../util/database';
 import {styles} from '../Items/ItemCss';
 
 export function FavItem({movie}) {
+  //delete from favorite list
   const deleteFavoriteMovie = async () => {
+    //delete from sqlite storage
     await deleteFavoriteMovies(movie.id);
   };
 

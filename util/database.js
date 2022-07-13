@@ -11,6 +11,7 @@ const database = openDatabase(
   },
 );
 
+// create favorites table
 export function init() {
   const promise = new Promise((resolve, reject) => {
     database.transaction(tx => {
@@ -39,6 +40,7 @@ export function init() {
   return promise;
 }
 
+//insert favorite movie
 export function insertFavoriteMovie(movie) {
   const promise = new Promise((resolve, reject) => {
     database.transaction(tx => {
@@ -66,7 +68,7 @@ export function insertFavoriteMovie(movie) {
   });
   return promise;
 }
-
+//get all movies
 export function fetchFavoriteMovies() {
   let movies = [];
   const promise = new Promise((resolve, reject) => {
@@ -91,7 +93,7 @@ export function fetchFavoriteMovies() {
   });
   return promise;
 }
-
+// delete movie
 export function deleteFavoriteMovies(id) {
   let movies = [];
   const promise = new Promise((resolve, reject) => {

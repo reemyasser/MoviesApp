@@ -12,25 +12,11 @@ export function HomeScreen({navigation}) {
     fetchFavoriteMovies().then(data => {
       setfavoriteMovies(data);
     });
-    console.log('homescreen');
   }, []);
-  const Top_rated = () => (
+  //component to filter movies
+  const ListMovies = ({route}) => (
     <ListItem
-      filterName={'top_rated'}
-      favoriteMovies={favoriteMovies}
-      setfavoriteMovies={setfavoriteMovies}
-    />
-  );
-  const Upcoming = () => (
-    <ListItem
-      filterName={'upcoming'}
-      favoriteMovies={favoriteMovies}
-      setfavoriteMovies={setfavoriteMovies}
-    />
-  );
-  const Now_playing = () => (
-    <ListItem
-      filterName={'now_playing'}
+      filterName={route.params.filterName}
       favoriteMovies={favoriteMovies}
       setfavoriteMovies={setfavoriteMovies}
     />
@@ -57,9 +43,21 @@ export function HomeScreen({navigation}) {
         tabBarActiveTintColor: '#306EFF',
         tabBarInactiveTintColor: 'gray',
       })}>
-      <Tab.Screen name="Top Movies" component={Top_rated} />
-      <Tab.Screen name="upcoming movies" component={Upcoming} />
-      <Tab.Screen name="now playing movies" component={Now_playing} />
+      <Tab.Screen
+        name="Top Movies"
+        initialParams={{filterName: 'top_rated'}}
+        component={ListMovies}
+      />
+      <Tab.Screen
+        name="upcoming movies"
+        initialParams={{filterName: 'upcoming'}}
+        component={ListMovies}
+      />
+      <Tab.Screen
+        name="now playing movies"
+        initialParams={{filterName: 'now_playing'}}
+        component={ListMovies}
+      />
     </Tab.Navigator>
   );
 }

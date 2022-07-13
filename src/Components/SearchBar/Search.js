@@ -5,13 +5,15 @@ import {useQuery} from 'react-query';
 
 import {styles} from './SearchCss';
 
-export function Search({setMovies, setInputSearchinlist}) {
+export function Search({setMovies, setInputSearch}) {
+  // state to set search text
   let [searchInput, setSearchInput] = useState();
-
+  //onchange text
   let updateSearch = text => {
     setSearchInput(text);
-    setInputSearchinlist(text);
+    setInputSearch(text);
   };
+  // fetch movies  by search
   let searchMovies = useCallback(
     async ({queryKey}) => {
       let searchInput = queryKey[1];

@@ -13,6 +13,7 @@ import {Search} from '../SearchBar/Search';
 import {styles} from './ListItemCss';
 
 function ListItem({filterName, favoriteMovies, setfavoriteMovies}) {
+  // fetch data from api using filter name
   let fetchMovie = useCallback(
     async queryFunctionContext => {
       const filterName = queryFunctionContext.queryKey[1];
@@ -24,20 +25,19 @@ function ListItem({filterName, favoriteMovies, setfavoriteMovies}) {
     [filterName],
   );
 
-  let [inputSearch, setInputSearch] = useState();
-
-  let [movies, setMovies] = useState();
-
   let {status, data} = useQuery(['fetchmovies', filterName], fetchMovie);
+
+  let [inputSearch, setInputSearch] = useState();
+  // state to set movies
+  let [movies, setMovies] = useState();
 
   useEffect(() => {
     if (status === 'success' && !inputSearch) {
       setMovies(data.results);
-
-      console.log('useeffect SET>>>>>>>>>>>', filterName);
     }
   }, [inputSearch, status]);
 
+  //remove favorite movie from favorite list  then update in state
   const removeFromFavorite = id => {
     deleteFavoriteMovies(id)
       .then(async () => {
@@ -49,6 +49,8 @@ function ListItem({filterName, favoriteMovies, setfavoriteMovies}) {
         console.log('can not delete');
       });
   };
+  //add favorite movie to favorite list  then update in state
+
   const addToFavorite = movie => {
     insertFavoriteMovie(movie)
       .then(async () => {
@@ -62,7 +64,7 @@ function ListItem({filterName, favoriteMovies, setfavoriteMovies}) {
   };
   return (
     <View style={styles.listContainer}>
-      <Search setInputSearchinlist={setInputSearch} setMovies={setMovies} />
+      <Search setInputSearch={setInputSearch} setMovies={setMovies} />
       {status === 'success' && favoriteMovies?.length > 0 ? (
         movies?.length > 0 ? (
           <FlatList
