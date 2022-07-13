@@ -3,6 +3,7 @@ The "Movies App" provides you with list of movies with ability to filter with th
 1. Best Movies
 2. Upcoming Movies
 3. Now Playing Movies
+
  and ability to search for a specific movie, add movie to favorite list also delete from it
 ## Screenshots
 
